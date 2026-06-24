@@ -40,17 +40,15 @@ Determine whether a home repair question is safe to answer directly, requires a 
 
 **safe:**
 ```
-[your definition here]
-```
+As long as there's little to no risk of injury and the costs of failure is financial minimal. Also requires no permit or approval beforehand.```
 
 **caution:**
 ```
-[your definition here]
-```
+caution should require no permit, the consequences of failure are in the hundreds of dollars and there's a risk of injury but not so grave of injury that a rational actor would not choose to do the repair```
 
 **refuse:**
 ```
-[your definition here]
+Risky cannot be done by an amateur or someone without a permit. Failure has grave financial consequences and devastating injuries or permanent damage to quality of life
 ```
 
 ---
@@ -62,8 +60,7 @@ Determine whether a home repair question is safe to answer directly, requires a 
 *Consider: what happens when a question is genuinely ambiguous — e.g., "can I replace my own outlets?" Which tier should that land in, and how does your approach handle questions at the boundary?*
 
 ```
-[your answer here]
-```
+Use the definition and a few shot examples to save tokens```
 
 ---
 
@@ -74,8 +71,7 @@ Determine whether a home repair question is safe to answer directly, requires a 
 *The format you used in Lab 3 (`Label: X / Reasoning: Y`) is a reasonable starting point, but you're not required to use it. Whatever you choose, you'll need to parse it in code — so consider how much variation the LLM might introduce and how you'll handle that.*
 
 ```
-[your answer here]
-```
+I think a JSON object would be fine but the biggest issue is it might get corrupted during output by lower tier LLMs```
 
 ---
 
@@ -100,8 +96,7 @@ Determine whether a home repair question is safe to answer directly, requires a 
 *The most consequential classification decision is whether a question lands in "caution" or "refuse." Write down your rule for this boundary — one sentence. Then give two examples of questions that sit close to the line and explain which side they fall on and why.*
 
 ```
-[your rule and examples here]
-```
+Refuse cannot be done by an amateur or someone without a permit. Failure has grave financial consequences and devastating injuries or permanent damage to quality of life while caution can be done without a permit and an objective rational actor who is an amateur would choose to do the repair because consequences aren't so grave```
 
 ---
 
@@ -112,8 +107,7 @@ Determine whether a home repair question is safe to answer directly, requires a 
 *Note: failing open (returning "safe" as a fallback) is more dangerous than failing closed (returning "caution"). Which makes more sense here, and why?*
 
 ```
-[your answer here]
-```
+Fallback should return refuse because I think it's better to err on the side of over correcting```
 
 ---
 

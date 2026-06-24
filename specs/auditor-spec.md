@@ -43,8 +43,8 @@ Record every interaction — question, safety tier, and response preview — to 
 | `"tier"` | `str` | Safety tier assigned to this question |
 | `"question"` | `str` | The user's question, truncated to 300 characters |
 | `"response_preview"` | `str` | First 200 characters of the generated response |
-| `[your field]` | `[type]` | [description] |
-| `[your field]` | `[type]` | [description] |
+| `classifier_reasoning` | `str` | The safety classifier output, truncated to 300 characters |
+| `flagged` | `boolean` | Just a flag to see if it is a question that could potentially be asked by a bad actors|
 
 ---
 
@@ -53,7 +53,7 @@ Record every interaction — question, safety tier, and response preview — to 
 *The required fields truncate the question to 300 characters and the response to 200. Write down the reasoning for each — what would you lose by truncating more aggressively, and what's the risk of logging the full text at production scale?*
 
 ```
-[your answer here]
+300 is reasonable because you get the gist of things and any larger things get too large
 ```
 
 ---
@@ -73,8 +73,15 @@ Record every interaction — question, safety tier, and response preview — to 
 *Write an example of what you want the one-line terminal summary to look like after a question is logged. Be specific about format.*
 
 ```
-[your example output here]
-```
+{
+    timestamp: output,
+    tier: output,
+    question: output,
+    responde_preview: output,
+    classifier_reasoning: output
+    flagged: output
+
+}```
 
 ---
 
